@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dari Yonn untuk Melisa 😆💖</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    overflow: hidden;
+    text-align: center;
+  }
+  .card {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 30px 40px;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    animation: float 3s ease-in-out infinite;
+  }
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    animation: fadeIn 1s ease forwards;
+  }
+  p {
+    font-size: 1.1rem;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 0.5s;
+  }
+  button {
+    margin-top: 25px;
+    background: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: #ff69b4;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  button:hover {
+    transform: scale(1.1);
+    background: #ffe0f0;
+  }
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+  @keyframes float {
+    0%,100% {transform: translateY(0);}
+    50% {transform: translateY(-10px);}
+  }
+  .emoji {
+    position: absolute;
+    font-size: 1.4rem;
+    animation: fly 6s linear infinite;
+  }
+  @keyframes fly {
+    from {transform: translateY(100vh) rotate(0deg); opacity: 1;}
+    to {transform: translateY(-10vh) rotate(360deg); opacity: 0;}
+  }
+  img {
+    width: 120px;
+    margin-top: 20px;
+    border-radius: 15px;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1 id="judul">Haii Melisa 🌸</h1>
+    <p id="pesan">Cape ya hari ini? 😌<br>Jangan lupa istirahat ya, kwkwkwkwk 😆</p>
+    <button id="nextBtn">Lanjut ➤</button>
+  </div>
+
+  <script>
+    // animasi emoji random di background
+    const emojis = ["💖","✨","🌸","🌷","💫","💕","😆","🌼"];
+    for (let i = 0; i < 15; i++) {
+      let e = document.createElement("div");
+      e.className = "emoji";
+      e.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      e.style.left = Math.random() * 100 + "vw";
+      e.style.animationDelay = Math.random() * 5 + "s";
+      document.body.appendChild(e);
+    }
+
+    // slide isi ucapan
+    const slides = [
+      {judul: "Haii Melisa 🌸", pesan: "Cape ya hari ini? 😌<br>Jangan lupa istirahat ya, kwkwkwkwk 😆"},
+      {judul: "Ehhh 😏", pesan: "Udah makan belum? Jangan cuma scroll IG terus 🤭"},
+      {judul: "Woyy 😤", pesan: "Kalau ngantuk, tidur gih! Dunia ga akan runtuh kok 5 menit kamu rebahan 😴"},
+      {judul: "Hehehe 🐜", pesan: "<img src='https://cdn-icons-png.flaticon.com/512/4150/4150897.png'><br><br>Tau aja ni semut, ada yang manis-manis 😝"}
+    ];
+
+    let index = 0;
+    const judul = document.getElementById("judul");
+    const pesan = document.getElementById("pesan");
+    const btn = document.getElementById("nextBtn");
+
+    btn.onclick = () => {
+      index++;
+      if (index < slides.length) {
+        judul.innerHTML = slides[index].judul;
+        pesan.innerHTML = slides[index].pesan;
+        if (index === slides.length - 1) btn.textContent = "✨ Selesai ✨";
+      } else {
+        btn.style.display = "none";
+        judul.innerHTML = "Udahan ya 😆";
+        pesan.innerHTML = "Hehehe makasih udah liat 💖<br><br>Dari: <b>Yonn</b> 😎";
+      }
+    };
+  </script>
+</body>
+</html>
