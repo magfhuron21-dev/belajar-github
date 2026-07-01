@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dari Furqon untuk Fidaa 🐜💌</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Baloo+2:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fff8ef;
+    --pink:#ff8fb1;
+    --pink-deep:#ff5f96;
+    --peach:#ffc98b;
+    --mint:#8fe3c0;
+    --ink:#5b4636;
+    --tape:#ffe08a;
+  }
+  *{box-sizing:border-box;}
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at 15% 20%, #ffd3e2 0%, transparent 45%),
+      radial-gradient(circle at 85% 80%, #bdeedd 0%, transparent 45%),
+      linear-gradient(135deg, #ffe9d6 0%, #ffd6e8 100%);
+    font-family: "Baloo 2", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--ink);
+    overflow: hidden;
+    text-align: center;
+    position:relative;
+  }
+
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image: radial-gradient(#00000010 1px, transparent 1px);
+    background-size: 18px 18px;
+    pointer-events:none;
+  }
+
+  .stage{ position:relative; width:100%; height:100vh; display:flex; align-items:center; justify-content:center; }
+
+  .card {
+    position:relative;
+    background: var(--paper);
+    border-radius: 24px;
+    padding: 38px 32px 30px;
+    width: 86%;
+    max-width: 380px;
+    box-shadow: 0 18px 0 -6px #00000012, 0 20px 40px rgba(90,50,40,0.18);
+    transform: rotate(-1.2deg);
+    animation: settle 3.2s ease-in-out infinite;
+  }
+  @keyframes settle {
+    0%,100% { transform: rotate(-1.2deg) translateY(0); }
+    50% { transform: rotate(1deg) translateY(-8px); }
+  }
+
+  .tape {
+    position:absolute; top:-16px; left:50%; transform: translateX(-50%) rotate(-3deg);
+    width:110px; height:34px;
+    background: repeating-linear-gradient(45deg, var(--tape), var(--tape) 8px, #ffcf5c 8px, #ffcf5c 16px);
+    opacity:0.9; border-radius:3px;
+    box-shadow:0 2px 4px rgba(0,0,0,0.12);
+  }
+
+  .stamp{
+    position:absolute; top:14px; right:16px;
+    font-family:"Caveat", cursive;
+    font-size:0.95rem;
+    color:var(--pink-deep);
+    border:2px dashed var(--pink-deep);
+    border-radius:50%;
+    width:58px; height:58px;
+    display:flex; align-items:center; justify-content:center;
+    transform: rotate(12deg);
+    line-height:1.1;
+  }
+
+  .eyebrow{
+    font-family:"Caveat", cursive;
+    font-size:1.15rem;
+    color: var(--pink-deep);
+    margin: 6px 0 2px;
+  }
+
+  h1 {
+    font-family:"Baloo 2", sans-serif;
+    font-weight: 800;
+    font-size: 1.7rem;
+    margin: 4px 0 14px;
+    color: var(--ink);
+  }
+
+  p {
+    font-size: 1.05rem;
+    line-height:1.55;
+    margin: 0 6px;
+    min-height: 70px;
+  }
+
+  .dots{
+    display:flex; justify-content:center; gap:7px; margin-top:22px;
+  }
+  .dot{
+    width:8px; height:8px; border-radius:50%;
+    background:#e6d9c8;
+    transition: all .3s ease;
+  }
+  .dot.active{ background: var(--pink-deep); transform: scale(1.3); }
+
+  button {
+    margin-top: 20px;
+    background: linear-gradient(135deg, var(--pink), var(--pink-deep));
+    border: none;
+    border-radius: 999px;
+    padding: 11px 26px;
+    color: #fff;
+    font-family:"Baloo 2", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 6px 0 #e0447d;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  button:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #e0447d;
+  }
+
+  .antbox{
+    display:flex; justify-content:center; margin-top: 4px;
+  }
+  .antbox svg{ width:70px; height:70px; }
+
+  .floaty {
+    position: absolute;
+    font-size: 1.3rem;
+    animation: fly 7s linear infinite;
+    pointer-events:none;
+    user-select:none;
+  }
+  @keyframes fly {
+    from {transform: translateY(105vh) rotate(0deg); opacity: 0.9;}
+    to {transform: translateY(-12vh) rotate(360deg); opacity: 0;}
+  }
+
+  canvas#confetti{
+    position:fixed; inset:0; pointer-events:none;
+  }
+
+  .final-title{
+    font-family:"Caveat", cursive;
+    font-weight:700;
+    font-size:2.1rem;
+    color: var(--pink-deep);
+  }
+  .signoff{
+    font-family:"Caveat", cursive;
+    font-size:1.4rem;
+    margin-top:10px;
+    display:block;
+  }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="card" id="card">
+    <div class="tape"></div>
+    <div class="stamp">buat<br>kamu</div>
+    <div class="eyebrow" id="eyebrow">surat kecil #1</div>
+    <h1 id="judul">Haii Fidaa 🌸</h1>
+    <p id="pesan">Cape ya hari ini? 😌<br>Jangan lupa istirahat ya, kwkwkwkwk 😆</p>
+    <div class="dots" id="dots"></div>
+    <div class="antbox" id="antbox" style="display:none;"></div>
+    <button id="nextBtn">Lanjut ➤</button>
+  </div>
+</div>
+
+<canvas id="confetti"></canvas>
+
+<script>
+const emojis = ["💖","✨","🌸","🌷","💫","💕","😆","🌼","🐜"];
+for (let i = 0; i < 16; i++) {
+  let e = document.createElement("div");
+  e.className = "floaty";
+  e.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+  e.style.left = Math.random() * 100 + "vw";
+  e.style.animationDelay = Math.random() * 6 + "s";
+  e.style.animationDuration = (5 + Math.random()*4) + "s";
+  document.body.appendChild(e);
+}
+
+const antSVG = `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="50" cy="70" rx="16" ry="12" fill="#3b2a20"/>
+  <ellipse cx="50" cy="50" rx="11" ry="9" fill="#3b2a20"/>
+  <circle cx="50" cy="32" r="9" fill="#3b2a20"/>
+  <line x1="45" y1="24" x2="38" y2="12" stroke="#3b2a20" stroke-width="2" stroke-linecap="round"/>
+  <line x1="55" y1="24" x2="62" y2="12" stroke="#3b2a20" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="46" cy="31" r="1.6" fill="#fff"/>
+  <circle cx="54" cy="31" r="1.6" fill="#fff"/>
+</svg>`;
+
+const slides = [
+  {eyebrow:"surat kecil #1", judul: "Haii Fidaa 🌸", pesan: "Cape ya hari ini? 😌<br>Jangan lupa istirahat ya, kwkwkwkwk 😆", ant:false},
+  {eyebrow:"surat kecil #2", judul: "Ehhh 😏", pesan: "Udah makan belum?<br>Jangan cuma scroll IG terus dong 🤭", ant:false},
+  {eyebrow:"surat kecil #3", judul: "Woyy 😤", pesan: "Kalau ngantuk, tidur gih!<br>Dunia ga akan runtuh kok kalau lu rebahan 5 menit 😴", ant:false},
+  {eyebrow:"surat kecil #4", judul: "Hehehe 🐜", pesan: "Tau aja ni semut,<br>ada yang manis-manis di sekitar sini 😝", ant:true},
+];
+
+let index = 0;
+const judul = document.getElementById("judul");
+const pesan = document.getElementById("pesan");
+const eyebrow = document.getElementById("eyebrow");
+const btn = document.getElementById("nextBtn");
+const dotsWrap = document.getElementById("dots");
+const antbox = document.getElementById("antbox");
+const card = document.getElementById("card");
+
+slides.forEach((_, i) => {
+  const d = document.createElement("div");
+  d.className = "dot" + (i === 0 ? " active" : "");
+  dotsWrap.appendChild(d);
+});
+
+function renderDots(i){
+  [...dotsWrap.children].forEach((d, k) => d.classList.toggle("active", k === i));
+}
+
+function showSlide(i){
+  eyebrow.textContent = slides[i].eyebrow;
+  judul.innerHTML = slides[i].judul;
+  pesan.innerHTML = slides[i].pesan;
+  antbox.style.display = slides[i].ant ? "flex" : "none";
+  antbox.innerHTML = slides[i].ant ? antSVG : "";
+  renderDots(i);
+  card.style.animation = "none";
+  void card.offsetWidth;
+  card.style.animation = "settle 3.2s ease-in-out infinite";
+}
+
+btn.onclick = () => {
+  index++;
+  if (index < slides.length) {
+    showSlide(index);
+    if (index === slides.length - 1) btn.textContent = "Buka yang terakhir ✨";
+  } else {
+    dotsWrap.style.display = "none";
+    antbox.style.display = "none";
+    btn.style.display = "none";
+    eyebrow.textContent = "surat terakhir";
+    judul.innerHTML = '<span class="final-title">Udahan ya~ 😆</span>';
+    pesan.innerHTML = 'Hehehe makasih udah baca sampai sini 💖<br><span class="signoff">Dari: Furqon 😎</span>';
+    burstConfetti();
+  }
+};
+
+const canvas = document.getElementById("confetti");
+const ctx = canvas.getContext("2d");
+function resize(){ canvas.width = innerWidth; canvas.height = innerHeight; }
+resize();
+window.addEventListener("resize", resize);
+
+function burstConfetti(){
+  const colors = ["#ff8fb1","#ff5f96","#ffc98b","#8fe3c0","#ffe08a"];
+  const pieces = Array.from({length: 90}, () => ({
+    x: canvas.width/2 + (Math.random()-0.5)*60,
+    y: canvas.height*0.35,
+    vx: (Math.random()-0.5)*10,
+    vy: Math.random()*-9 - 3,
+    size: 4 + Math.random()*5,
+    color: colors[Math.floor(Math.random()*colors.length)],
+    rot: Math.random()*360,
+    vr: (Math.random()-0.5)*14,
+    gravity: 0.28 + Math.random()*0.1
+  }));
+  let frame = 0;
+  function tick(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    frame++;
+    let alive = false;
+    pieces.forEach(p => {
+      p.vy += p.gravity;
+      p.x += p.vx;
+      p.y += p.vy;
+      p.rot += p.vr;
+      if (p.y < canvas.height + 20) alive = true;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot * Math.PI/180);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size*0.6);
+      ctx.restore();
+    });
+    if (alive && frame < 260) requestAnimationFrame(tick);
+    else ctx.clearRect(0,0,canvas.width,canvas.height);
+  }
+  tick();
+}
+</script>
+</body>
+</html>
